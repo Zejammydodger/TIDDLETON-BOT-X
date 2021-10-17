@@ -2,7 +2,7 @@
 #just some fun stuff to add to the bot 
 from discord.ext import commands
 
-class Simple(commands.Cog):
+class Simple(commands.Cog, name="simple"):
     def __init__(self , bot):
         self.bot = bot
 
@@ -12,7 +12,3 @@ class Simple(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Simple(bot))
-
-
-
-
