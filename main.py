@@ -1,10 +1,13 @@
 ##### the one that runs! ####
+import os
+
 import discord
 from discord.ext import commands
-import os
+from discord.utils import get
 
 from Keep_Alive import keep_alive
 from inspect import Parameter
+from Tiddleton import RoleIDs
 
 intents = discord.Intents(messages=True, guilds=True, members=True)
 
@@ -32,17 +35,32 @@ def CommandInfo(com, bot, ctx):
 
 @bot.command()
 async def Help(ctx, *, option = None):
-  if option == None : 
-    emb = discord.Embed(title = "Tiddler Categories", color = 0x884c9e)
-    for cog in bot.cogs:
-      emb.add_field(name = cog, value = f"`{GetPrefix(bot, ctx)[0]}Help {cog}`")
-  else:
+  with open("./BotData/HelpIgnore.txt","r") as f:
+    Locked = f.read().split('\n')
+
+  Ignore = []
+  for i, Category in enumerate(Locked) :
+    cog, name = Category.split(':')
+    ID = RoleIDs.IDTable[name]
+    if not get(ctx.guild.roles, id=ID) in ctx.author.roles :
+      Ignore.append(cog)
+
+
+  cogList = list(filter(lambda x : not str(x) in Ignore, bot.cogs))
+
+  if option :
     cog = bot.get_cog(option.lower())
-    if cog:
+    if cog and option in cogList:
       CogCommands = cog.get_commands()
       emb = discord.Embed(title = cog.qualified_name, description = '\n\n'.join([CommandInfo(command,bot, ctx) for command in CogCommands])+ "**N/A**" * (len(CogCommands) == 0), color = 0x884c9e)
     else:
       emb = discord.Embed(title = "ERROR 404 NOT FOUND", color = 0x884c9e)
+
+  else :
+    emb = discord.Embed(title = "Tiddleton Bot Categories", color = 0x884c9e)
+    for cog in cogList:
+      emb.add_field(name = cog, value = f"`{GetPrefix(bot, ctx)[0]}Help {cog}`")
+
   emb.set_thumbnail(url = bot.user.avatar_url)
   await ctx.send(embed = emb)
 
