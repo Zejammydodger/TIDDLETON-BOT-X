@@ -1,14 +1,14 @@
-#### loads commands ####
-#just some fun stuff to add to the bot 
+
+import discord
 from discord.ext import commands
 
-class Simple(commands.Cog, name="simple"):
+class PoliceCommands(commands.Cog, name="police commands"):
     def __init__(self , bot):
         self.bot = bot
 
     @commands.command()
-    async def Ping(self, ctx):
-      await ctx.send("Pong")
+    async def warn(self, ctx, member : discord.Member, *, reason):
+      pass
 
 def setup(bot):
-    bot.add_cog(Simple(bot))
+    bot.add_cog(PoliceCommands(bot))

@@ -25,6 +25,7 @@ for Command in filter(lambda x: ".py" in x, os.listdir("./BotCommands/")): #
 @bot.event
 async def on_ready():
   print("Ready")
+
 def CommandInfo(com, bot, ctx):
   Args = [('<' * (Ty.default != Parameter.empty) or '[')+ f'{Key}' + (':Optional>' * (Ty.default != Parameter.empty) or ']')for Key, Ty in com.clean_params.items()]
   return f'''`{GetPrefix(bot, ctx)[0]}{com.name} {' '.join(Args)}`\n{com.help}'''
