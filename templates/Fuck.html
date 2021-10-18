@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+	  <!--<script src = "aBadIdea.js"></script>-->
+	  <script type = "text/javascript" src = "{{ url_for('static' , filename = 'aBadIdea.js')}}"></script>
+      <title>fuck</title>
+
+      <style>
+
+          p {
+            font-size: 100px;
+          }
+
+      </style>
+
+  </head>
+
+  <!--<body onload = "writeUniqueMessages()">-->
+  <body onload = "writeUniqueMessages({{jsonFile}})">
+
+    <ul id = "aReallyDumbIdea">
+        <li onclick = "alert('you done got dunked mate')">get dunked on</li>
+    </ul>
+
+  </body>
+
+</html>

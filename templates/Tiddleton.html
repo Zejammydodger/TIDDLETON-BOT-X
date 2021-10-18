@@ -1,18 +1,172 @@
 <!DOCTYPE html>
 <html>
   <style>
-    p {
-      color : pink;
+
+    @keyframes fuck{
+      0% {background-color : purple;}
+      50% {background-color : yellow;}
+      100% {background : blue;}
+    }
+    
+    @keyframes OwO {
+      100% {font-size : 100px;}
+    }
+    @keyframes bouncy {
+      0% {left : 1000px;}
+      100% {left : -1000px;}
+    } 
+    @keyframes spin {
+      50% {transform : rotate(360deg);}
+      100% {transform : rotate(-360deg)}
+    }
+    .spinny {
+      animation-name : spin;
+      animation-duration : 0.75s;
+      animation-iteration-count: infinite;
+    }
+    .URL {
+      color : blue;
+      background-color : yellow;
+      font-family : comic sans ms;
+      animation-name : OwO;
+      animation-duration : 50s;
+      animation-iteration-count: infinite;
+    }
+    .spinny-slow {
+      animation-name : spin;
+      animation-duration : 10000s;
+      animation-iteration-count: infinite;
+    }
+    div {
+      border-style : inset;
+      border-width : 5px;
+      border-color : blue;
+      padding : 10px;
+      margin : 10px;
+      background : linear-gradient(120deg,red,orange,yellow,lime,blue,purple,pink);
+    }
+    .GradText {
+      background : linear-gradient(180deg,black,grey);
+      -webkit-background-clip : text;
+      -webkit-text-fill-color : transparent;
       background-color : black;
+      font-family : comic sans ms;
+      animation-name : OwO;
+      animation-duration : 50s;
+      animation-iteration-count: infinite;
      }
+     
+    .hover:hover{visibility: hidden; width: 45px;}
+
+    html {
+      animation-name : fuck;
+      animation-duration : 50s;
+      animation-iteration-count: infinite;
+    }
+    h1 {
+      font-size: 50px;
+    }
+
+    button {
+      position : relative;
+      animation-name : bouncy;
+      animation-duration : 1s;
+      animation-direction : alternative;
+      animation-iteration-count : infinite;
+    }
   
-</style>
-<head>
-</head>
-<body>
-<p>Fuck You</p>
-<p>why</p>
-<p>Im just gonna add this here :) - neo</p>
-<p>go away neo i hate you</p>
-</body>
+    #float {
+      float : right;
+    }
+
+    .margin {
+      margin : 300px;
+    }
+
+    #bigboi {
+      font-size : 300px;
+    }
+
+    #smolboi {
+      font-size : 2px;
+    }
+
+    #medboi {
+      font-size : 100px;
+    }
+
+    #center {
+      text-align: center;
+    }
+
+
+  </style>
+  
+  <head>
+    <title>FUCK you wace EEEEE</title>
+	<script type = "text/javascript" src = "{{ url_for('static' , filename = 'aBadIdea.js')}}"></script>
+  </head>
+  
+  <h1 id="center">12</h1>
+  <body onload = "writeUniqueMessages({{jsonFile}})">
+		  <ul id = "aReallyDumbIdea">
+			  <li>test</li>
+		  </ul>
+    <div class="spinny-slow">
+    <h1 class="GradText"> Tiddleton.      <b>NO reFunDs</b></h1>
+    <div>
+      <div>
+        <div>
+          <p class="GradText" class="hover">p</p>
+          <div>
+            <p class="GradText">amongsus</p>
+            <div>
+              <img class = "spinny" src="https://cdn.discordapp.com/attachments/715189198734360577/899394644297789540/Tiddletonspewkyicon.png"></img>
+              <p class="URL"><a href="https://discord.gg/GSrpwXEyVG">DISCORD</a></p>
+              <p><p class="URL"><a href="https://discord.gg/GSrpwXEyVG">DISCORD</a></p>
+              <p><p class="URL"><a href="https://discord.gg/GSrpwXEyVG">DISCORD</a></p>
+              <p>
+              <p class="margin" id="center" onclick="alert('get dunked on, courtesy of mel x')" class="GradText">Fuck You</p>
+              <p class="hover" id="float" class="GradText" >why</p>
+              <p class="hover" class="margin" class="GradText">Im just gonna add this here :) - neo</p>
+              <p class="hover" id="float" class="GradText">go away <b>neo</b> i hate you</p>
+              <p class="hover" class="GradText">mel is better than you x</p>
+              <button>hi</button>
+              <button>hi</button>
+              <button>hi</button>
+              <button>hi</button>
+              <button>hi</button>
+              <button class="spinny-slow" onclick = "alert('you betta run boi')">zoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooom</button>
+              <p class="hover" id="bigboi" class="GradText" >bitch ass</p>
+              <p id="smolboi" class="GradText">kill me</p>
+          </div>
+          <ul id="medboi" class="hover">
+            <li>dis is a list</li>
+            <li>the it departemnta are bettr than polic uwu</li>
+          </ul>
+        </div>
+
+        <form action = "{{ url_for('handle_opinion') }}" method = "POST">
+          <label>what's yo name bro</label>
+			    <br>
+		    	<input id = "name" type= "text" name= "name" max= "10">
+		    	<br><br>
+
+		    	<label>what's your opinion on the IT department</label>
+		    	<br>
+		    	<input id = "opinion" type= "text" name= "opinion" max= "100">
+		    	<br><br>
+			
+			<input type = "submit" onclick = "alert('UwU, your opinion has gone through')" value = "Submit Opinion on Us" name= "submit">
+		</form>
+
+      </div>
+    </div>
+    </div>
+    <div>hi</div>
+    </div>
+    </div>
+    <h1 id="center">6</h1>
+  </body>
+  <footer><script>alert("Welcome to hell")</script></footer>
 </html>
