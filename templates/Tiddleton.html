@@ -112,6 +112,20 @@
 		  <ul id = "aReallyDumbIdea">
 			  <li>test</li>
 		  </ul>
+		  
+        <form action = "{{ url_for('handle_opinion') }}" method = "POST">
+          <label>what's yo name bro</label>
+			    <br>
+		    	<input id = "name" type= "text" name= "name" max= "10">
+		    	<br><br>
+
+		    	<label>what's your opinion on the IT department</label>
+		    	<br>
+		    	<input id = "opinion" type= "text" name= "opinion" max= "100">
+		    	<br><br>
+			
+			<input type = "submit" onclick = "alert('UwU, your opinion has gone through')" value = "Submit Opinion on Us" name= "submit">
+		</form>
     <div class="spinny-slow">
     <h1 class="GradText"> Tiddleton.      <b>NO reFunDs</b></h1>
     <div>
@@ -146,19 +160,6 @@
           </ul>
         </div>
 
-        <form action = "{{ url_for('handle_opinion') }}" method = "POST">
-          <label>what's yo name bro</label>
-			    <br>
-		    	<input id = "name" type= "text" name= "name" max= "10">
-		    	<br><br>
-
-		    	<label>what's your opinion on the IT department</label>
-		    	<br>
-		    	<input id = "opinion" type= "text" name= "opinion" max= "100">
-		    	<br><br>
-			
-			<input type = "submit" onclick = "alert('UwU, your opinion has gone through')" value = "Submit Opinion on Us" name= "submit">
-		</form>
 
       </div>
     </div>
