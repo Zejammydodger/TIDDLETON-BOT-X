@@ -28,11 +28,14 @@ class RoleIDs():
   }
 
 class RoleChecks():
+  @staticmethod
   def is_IT(context):
     return get(context.guild.roles, id=RoleIDs.IT) in context.author.roles
   
+  @staticmethod
   def is_Police(context):
     return get(context.guild.roles, id=RoleIDs.Police) in context.author.roles
 
+  @staticmethod
   def is_Admin(context):
     return get(context.guild.roles, id=RoleIDs.Admin) in context.author.roles
