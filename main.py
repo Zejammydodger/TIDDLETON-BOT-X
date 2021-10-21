@@ -42,15 +42,16 @@ async def Help(ctx, *, option = None):
   for i, Category in enumerate(Locked) :
     cog, name = Category.split(':')
     ID = RoleIDs.IDTable[name]
+
     if not get(ctx.guild.roles, id=ID) in ctx.author.roles :
       Ignore.append(cog)
 
 
-  cogList = list(filter(lambda x : not str(x) in Ignore, bot.cogs))
+  cogList = list(filter(lambda x : not bot.get_cog(x).qualified_name in Ignore, bot.cogs))
 
   if option :
     cog = bot.get_cog(option.lower())
-    if cog and option in cogList:
+    if cog and (option in cogList):
       CogCommands = cog.get_commands()
       emb = discord.Embed(title = cog.qualified_name, description = '\n\n'.join([CommandInfo(command,bot, ctx) for command in CogCommands])+ "**N/A**" * (len(CogCommands) == 0), color = 0x884c9e)
     else:

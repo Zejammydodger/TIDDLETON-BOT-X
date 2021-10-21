@@ -18,35 +18,50 @@ class ITCommands(commands.Cog, name="it commands"):
   
   @commands.command()
   async def Ping(self, ctx):
+    """
+    Gets the bots latency and checks if it is online
+    """
     await ctx.send(f"Ping : {self.bot.latency}")
 
   @commands.command()
-  async def Log(self, ctx, *, Log):
-    WriteLog(ctx.author.name, Log)
+  async def Log(self, ctx, *, text):
+    """
+    Writes to the bots debug logging file
+    """
+    WriteLog(ctx.author.name, text)
     await ctx.send("Successfully logged")
 
   @commands.command()
   async def ClearLog(self, ctx) :
+    """
+    Clears the bots debug logging file
+    """
     with open("./BotData/Log.txt", "w") as f:
       f.write("")
     await ctx.send("Log Cleared")
 
   @commands.command()
-  async def Load(self, ctx, Cog : str):
+  async def Load(self, ctx, Ext : str):
+    """
+    Loads an extension that is not yet loaded
+    """
     try:
-      self.bot.load_extension(f'BotCommands.{Cog}')
-      await ctx.send(embed = discord.Embed(title = "load Sucessful", description=f'BotCommands.{Cog} was Sucessfully loaded', colour=0x00ff00))
+      self.bot.load_extension(f'BotCommands.{Ext}')
+      await ctx.send(embed = discord.Embed(title = "load Sucessful", description=f'BotCommands.{Ext} was Sucessfully loaded', colour=0x00ff00))
     except BaseException as e:
       await ctx.send(embed = discord.Embed(title = "load Failed", description=f'Could not load\n  ```{type(e)} : {e}```', colour=0xff0000))
 
   @commands.command()
-  async def Reload(self, ctx, Cog : str):
+  async def Reload(self, ctx, Ext : str):
+    """
+    Reloads an extension that is currently loaded
+    """
     try:
-      self.bot.reload_extension(f'BotCommands.{Cog}')
-      await ctx.send(embed = discord.Embed(title = "Reload Sucessful", description=f'BotCommands.{Cog} was Sucessfully reloaded', colour=0x00ff00))
+      self.bot.reload_extension(f'BotCommands.{Ext}')
+      await ctx.send(embed = discord.Embed(title = "Reload Sucessful", description=f'BotCommands.{Ext} was Sucessfully reloaded', colour=0x00ff00))
     except BaseException as e:
       await ctx.send(embed = discord.Embed(title = "Reload Failed", description=f'Could not Reload \n  ```{type(e)} : {e}```', colour=0xff0000))
       
 
 def setup(bot):
-    bot.add_cog(Debug(bot))
+    bot.add_cog(ITCommands(bot))
