@@ -1,8 +1,6 @@
-
-from flask import Flask
-from flask import render_template , request
+from flask import Flask, render_template, redirect, request, url_for
 from threading import Thread
-import json , requests , os
+import json, requests, os
 
 app = Flask('')
 jsonPath = "opinions.json"
@@ -22,15 +20,15 @@ def Fuck():
 	with open(jsonPath , "r") as F:
 		return render_template('Fuck.html' , jsonFile = str(json.load(F)))
 
-@app.route('/neo', methods = ['GET', 'POST'])
-def NEO():
-  return render_template("NEO.html")
+@app.route('/admin/<name>', methods = ['GET', 'POST'])
+def hello_name(name):
+    return render_template(f"admins/{name}.html")
 
 @app.route("/handle_opinion" , methods = ["POST"])
 def handle_opinion():
 	with open(jsonPath , "r") as F:
 		data = json.load(F)
-		
+
 	with open(jsonPath , "w") as F:
 		name = request.form["name"]
 		opinion = request.form["opinion"]
@@ -38,8 +36,7 @@ def handle_opinion():
 		data[name]  = opinion
 		json.dump(data , F)
 
-	return render_template("NEO.html")
-#use tabs
+	return redirect(url_for("home"))
 
 def run():
   app.run(host='0.0.0.0',port=8080)

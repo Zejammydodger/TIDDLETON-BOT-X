@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<style>
+  @keyframes bubanimation {
+    0% {top : 0px; left : 0px; width:1%;}
+    25% {top : 2px; left : 0px;}
+    50% {top : 2px; left : 2px;}
+    75% {top : 0px; left : 2px;}
+    100% {top :0px; left : 0px; transform : rotate(1440deg); width:100%}
+  }
+  @keyframes bouncy {
+    0% {left : -100px}
+    50% {left : 1000px}
+    100% {left : -100px}
+  }
+  .bub {
+    position : relative;
+    animation-name : bubanimation;
+    animation-duration : 1000s;
+    animation-iteration-count : infinite;
+    animation-timing-function: linear;
+    float:left;
+  }
+  .bounce {
+    position : relative;
+    animation-name : bouncy;
+    animation-duration : 1s;
+    animation-iteration-count : infinite;
+    animation-timing-function: linear;
+    width : 10%;
+  }
+  .sheep {
+    position : relative;
+    animation-name : bouncy;
+    animation-duration : 10s;
+    animation-iteration-count : infinite;
+    animation-timing-function: linear;
+    width : 5%;    
+  }
+  h1 {
+    text-align: center;
+  }
+  body {
+    background : url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAFVBMVEX///8AI5XtKTkAFJJ6gbrzg4ntHTC7o1gDAAAA/klEQVR4nO3QSQ0AIAADsHH6l4yKPUhaCc2oWTs9586aOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHy4ckD5KrN4eD2boIAAAAASUVORK5CYII=");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+<head></head>
+<body>
+  <img class="bub" src="https://cdn.discordapp.com/avatars/553687034074759189/10171e55cc50dac467080fce731db21c.png?size=1024">
+  <h1>HEE HOO</h1>
+  <img src="https://cdn.discordapp.com/attachments/668454274228813841/900734629974278164/unknown.png" class = "bounce">
+  <div id="sheepbox">
+  </div>
+
+  <script> 
+    const sheep = document.createElement("img");
+    sheep.className = "sheep";
+    sheep.src = "https://cdn.discordapp.com/attachments/668454274228813841/901494275903213598/image-removebg-preview.png";
+    const element = document.getElementById("sheepbox");
+    element.appendChild(sheep);
+  </script>
+
+</body>
+</html>
