@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+      background-color:#94c9ff;
+    }
+    table {
+      width: 100%;
+    }
+    table, th, td {
+      border: 2px solid #94c9ff;
+      border-radius: 3%;
+      font-family: 'Montserrat', sans-serif; 
+    }
+    th {
+      background-color: #4b647d;
+    }
+    td {
+      background-color: #47a2ff;
+      text-align: center;
+    }
+  </style>
+
+  <head>
+    <!-- cool fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <!-- scripts -->
+    <script type = "text/javascript" src = "{{ url_for('static' , filename = 'EventReader.js')}}"></script>
+  </head>
+
+  <body onload = "CreateTable({{jsonFile}})" id="doc">
+  </body>
+</html>

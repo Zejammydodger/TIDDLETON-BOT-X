@@ -1,2 +1,1 @@
 Due to the fact that technically this whole thing is public (though realistically no one is looking at it), whenever we want to specify a channel or member or role in the bot we need to add its ID as a secret and get it similar to the bots token
-

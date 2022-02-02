@@ -4,6 +4,7 @@ import json, requests, os
 
 app = Flask('')
 jsonPath = "opinions.json"
+Events = "Events.json"
 
 if not os.path.exists(jsonPath):
 	with open(jsonPath , "w+") as F:
@@ -15,10 +16,19 @@ def home():
 	with open(jsonPath , "r") as F:
 		return render_template('Tiddleton.html' , jsonFile = str(json.load(F)))
 
+@app.route("/demo" , methods = ["GET" , "POST"])
+def BSDemo():
+	return render_template("bootStrapDemo.html")
+
 @app.route('/fuck', methods=['GET', 'POST'])
 def Fuck():
 	with open(jsonPath , "r") as F:
 		return render_template('Fuck.html' , jsonFile = str(json.load(F)))
+
+@app.route('/timetable', methods=["GET", "POST"])
+def TimeTable():
+  with open(Events, "r") as f:
+    return render_template("EventTimetable.html", jsonFile = str(json.load(f)))
 
 @app.route('/admin/<name>', methods = ['GET', 'POST'])
 def hello_name(name):

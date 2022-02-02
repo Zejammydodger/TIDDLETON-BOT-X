@@ -8,6 +8,7 @@ authors = ["WaceMindu <<>>"]
 python = "^3.8"
 discord = "^1.7.3"
 Flask = "^2.0.2"
+mcstatus = "^6.5.0"
 
 [tool.poetry.dev-dependencies]
 

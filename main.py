@@ -10,10 +10,10 @@ from inspect import Parameter
 from Tiddleton import RoleIDs
 
 intents = discord.Intents(messages=True, guilds=True, members=True)
-
-def GetPrefix(bot, ctx):
-  return ( 'T!', 't!')
   
+def GetPrefix(a, b):
+	return "&"
+
 bot = commands.Bot(command_prefix=GetPrefix, case_insensitive = True, intents = intents)
 
 bot.remove_command("help")
@@ -34,7 +34,7 @@ def CommandInfo(com, bot, ctx):
   return f'''`{GetPrefix(bot, ctx)[0]}{com.name} {' '.join(Args)}`\n{com.help}'''
 
 @bot.command()
-async def Help(ctx, *, option = None):
+async def HelpNew(ctx, *, option = None):
   with open("./BotData/HelpIgnore.txt","r") as f:
     Locked = f.read().split('\n')
 
@@ -62,7 +62,7 @@ async def Help(ctx, *, option = None):
     for cog in cogList:
       emb.add_field(name = cog, value = f"`{GetPrefix(bot, ctx)[0]}Help {cog}`")
 
-  emb.set_thumbnail(url = bot.user.avatar_url)
+  emb.set_thumbnail(url=bot.user.avatar_url)
   await ctx.send(embed = emb)
 
 keep_alive()
