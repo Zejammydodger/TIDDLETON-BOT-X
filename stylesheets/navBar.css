@@ -1,0 +1,6 @@
+/*this will be the navbar specific css style*/
+
+body#navBar {
+    height: 10%;
+    background-color: darkslategrey;
+}
